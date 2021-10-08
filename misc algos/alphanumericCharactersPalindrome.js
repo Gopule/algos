@@ -71,10 +71,10 @@ var isPalindrome = function (str) {
 //   let start = 0
 //   let end = str.length - 1
 //   while (start < end) {
-//     const left = str[start].toLowerCase()
-//     const right = str[end].toLowerCase()
-//     const leftYes = dic[left]
-//     const rightYes = dic[right]
+//     let left = str[start].toLowerCase()
+//     let right = str[end].toLowerCase()
+//     let leftYes = dic[left]
+//     let rightYes = dic[right]
 //     if (!leftYes || !rightYes) {
 //       if (!leftYes) start++
 //       if (!rightYes) end--
