@@ -2,6 +2,10 @@ function binarySearch(nums, target) {
   let start = 0;
   let end = nums.length - 1;
   let mid = Math.floor((end + start) / 2);
+  if (nums.length < 3) {
+    if (nums[start] === target) return start;
+    else if (nums[end] === target) return end;
+  }
   while (end - start > 1) {
     if (nums[mid] === target) {
       return mid;
