@@ -20,3 +20,4 @@ function isValid(str) {
 
 console.log(isValid("a")); //"YES"
 console.log(isValid("aabbcd")); //"NO"
+console.log(isValid("aabbccd")); //"YES"
