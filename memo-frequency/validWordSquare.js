@@ -2,7 +2,7 @@
 
 // A sequence of strings forms a valid word square if the kth row and column read the same string, where 0 <= k < max(numRows, numColumns).
 
-var validWordSqaure = function (words) {
+var validWordSquare = function (words) {
   const columns = {};
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
