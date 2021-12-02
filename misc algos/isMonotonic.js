@@ -5,15 +5,15 @@
 // Given an integer array nums, return true if the given array is monotonic, or false otherwise.
 
 var isMonotonic = function (nums) {
-  let monotonic = false;
+  let monotone = false;
   for (let i = 1; i < nums.length; i++) {
     const difference = nums[i] - nums[i - 1];
-    if (!monotonic) {
-      if (difference > 0) monotonic = "increasing";
-      else if (difference < 0) monotonic = "decreasing";
+    if (!monotone) {
+      if (difference > 0) monotone = "increasing";
+      else if (difference < 0) monotone = "decreasing";
     }
-    if (monotonic === "increasing" && difference < 0) return false;
-    if (monotonic === "decreasing" && difference > 0) return false;
+    if (monotone === "increasing" && difference < 0) return false;
+    if (monotone === "decreasing" && difference > 0) return false;
   }
   return true;
 };
