@@ -1,15 +1,12 @@
 class Solution:
     def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
-        arr = []
-        cur = head
-        while cur:
-            arr.append(cur)
-            cur = cur.next
-        arr[k-1], arr[-k] = arr[-k], arr[k-1]
-        ans = ListNode()
-        dummy = ans
-        for node in arr:
-            dummy.next = node
-            dummy = dummy.next
-            dummy.next = None
-        return ans.next
+        l, r = head, head
+        for _ in range(k - 1):
+            r = r.next
+        first = r
+        while r.next:
+            l = l.next
+            r = r.next
+        second = l
+        first.val, second.val = second.val, first.val
+        return head
