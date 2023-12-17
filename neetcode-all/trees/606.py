@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def tree2str(self, root: Optional[TreeNode]) -> str:
-        res = ""
+        res = []
         def dfs(node):
             nonlocal res
             if not node:
@@ -14,13 +14,13 @@ class Solution:
             res += str(node.val)
 
             if node.left or node.right:
-                res += "("
+                res.append("(")
                 dfs(node.left)
-                res += ")"
+                res.append(")")
             if node.right:
-                res += "("
+                res.append("(")
                 dfs(node.right)
-                res += ")"
+                res.append(")")
 
         dfs(root)
-        return res
+        return "".join(res)
