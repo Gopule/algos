@@ -1,37 +1,34 @@
 class TreeNode:
-    def __init__(self, val):
-        self.val = val
+    def __init__(self):
         self.children = {}
         self.end = False
 
 class Trie:
     def __init__(self):
-        self.tree = TreeNode(None)
+        self.tree = TreeNode()
 
     def insert(self, word: str) -> None:
         cur = self.tree
         for c in word:
             if c not in cur.children:
-                cur.children[c] = TreeNode(c)
+                cur.children[c] = TreeNode()
             cur = cur.children[c]
         cur.end = True
 
     def search(self, word: str) -> bool:
         cur = self.tree
         for c in word:
-            if c in cur.children:
-                cur = cur.children[c]
-            else:
+            if c not in cur.children:
                 return False
+            cur = cur.children[c]
         return cur.end
 
     def startsWith(self, prefix: str) -> bool:
         cur = self.tree
         for c in prefix:
-            if c in cur.children:
-                cur = cur.children[c]
-            else:
+            if c not in cur.children:
                 return False
+            cur = cur.children[c]
         return True
 
 # Your Trie object will be instantiated and called as such:
