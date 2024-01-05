@@ -1,17 +1,16 @@
 class Solution:
-    def partitionLabels(self, s: str) -> List[int]:
-        last_idx = {}
-        for i, c in enumerate(s):
-            last_idx[c] = i
+    def mergeTriplets(self, triplets: List[List[int]], target: List[int]) -> bool:
+        x, y, z = target
+        i, j, k = 0, 0, 0
+        for trip in triplets:
+            a, b, c = trip
+            if a > x or b > y or c > z:
+                continue
+            if a == x and (b <= y and c <= z):
+                i = a
+            if b == y and (a <= x and c <= z):
+                j = b
+            if c == z and (a <= x and b <= y):
+                k = c
 
-        res = []
-        end, size = 0, 0
-
-        for i, c in enumerate(s):
-            jump_idx = last_idx[c]
-            size += 1
-            end = jump_idx if jump_idx > end else end
-            if i == end:
-                res.append(size)
-                size = 0
-        return res
+        return i == x and j == y and k == z
