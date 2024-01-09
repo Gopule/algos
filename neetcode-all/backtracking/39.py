@@ -4,6 +4,7 @@ class Solution:
         def dfs(pos, target, sub):
             if target == 0:
                 res.append(sub.copy())
+                return
             if target < 0:
                 return
             for i in range(pos, len(candidates)):
